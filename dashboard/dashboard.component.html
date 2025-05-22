@@ -1,0 +1,97 @@
+<div class="container py-5">
+  <h2 class="text-center">Liste de Contacts</h2>
+
+  <!-- Spinner de chargement -->
+  @if (isLoading) {
+  <div class="d-flex justify-content-center my-4">
+    <mat-spinner color="accent" diameter="30"></mat-spinner>
+  </div>
+  } @else {
+  <table class="table table-bordered mt-4 text-center">
+    <thead class="table-dark">
+      <tr>
+        <th class="align-middle">Nom</th>
+        <th class="align-middle">Prénom</th>
+        <th class="align-middle">Téléphone</th>
+        <th class="align-middle">Email</th>
+        <th class="align-middle">Adresse</th>
+        <th class="align-middle">Supprimer</th>
+        <th class="align-middle">Détails</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (contact of contacts; track $index) {
+      <tr>
+        <td class="align-middle">{{ contact.nom }}</td>
+        <td class="align-middle">{{ contact.prenom }}</td>
+        <td class="align-middle">{{ contact.tel }}</td>
+        <td class="align-middle">{{ contact.email }}</td>
+        <td class="align-middle">{{ contact.adresse }}</td>
+        <td class="text-center align-middle">
+          <button
+            mat-icon-button
+            color="warn"
+            style="
+              all: unset;
+              background: crimson;
+              color: white;
+              padding: 0.3rem;
+              padding-top: 0.5rem;
+              border-radius: 5rem;
+              cursor: pointer;
+            "
+            (click)="deleteContact(contact.id)"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+        <td class="text-center align-middle">
+          <button
+            mat-icon-button
+            color="primary"
+            style="
+              all: unset;
+              background: royalblue;
+              color: white;
+              padding: 0.3rem;
+              padding-top: 0.5rem;
+              border-radius: 5rem;
+              cursor: pointer;
+            "
+            (click)="openDetails(contact)"
+          >
+            <mat-icon>visibility</mat-icon>
+          </button>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+  <div
+    style="
+      text-align: right;
+      margin-top: 2rem;
+      display: flex;
+      justify-content: flex-end;
+    "
+  >
+    <button
+      mat-icon-button
+      color="warn"
+      (click)="logout()"
+      class="bg-dark"
+      style="
+        all: unset;
+        display: flex;
+        justify-content: center;
+        color: white;
+        padding: 0.5rem;
+        border-radius: 5rem;
+        cursor: pointer;
+      "
+    >
+      <mat-icon>exit_to_app</mat-icon> <span> Déconnexion</span>
+    </button>
+  </div>
+  }
+</div>
