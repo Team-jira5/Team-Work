@@ -1,0 +1,92 @@
+<div class="container py-5" style="max-width: 600px;">
+    <h2 class="text-center">Protégez-vous dès maintenant</h2>
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      
+      <div class="mb-3">
+        <label for="nom" class="form-label">Nom</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nom"
+          placeholder="Entrez le nom"
+          formControlName="nom"
+          [ngClass]="{ 'is-invalid': contactForm.get('nom')?.touched && contactForm.get('nom')?.invalid }"
+        />
+        <small class="text-danger" *ngIf="contactForm.get('nom')?.touched && contactForm.get('nom')?.invalid">
+          Le nom est obligatoire.
+        </small>
+      </div>
+  
+      <div class="mb-3">
+        <label for="prenom" class="form-label">Prénom</label>
+        <input
+          type="text"
+          class="form-control"
+          id="prenom"
+          placeholder="Entrez le prénom"
+          formControlName="prenom"
+          [ngClass]="{ 'is-invalid': contactForm.get('prenom')?.touched && contactForm.get('prenom')?.invalid }"
+        />
+        <small class="text-danger" *ngIf="contactForm.get('prenom')?.touched && contactForm.get('prenom')?.invalid">
+          Le prénom est obligatoire.
+        </small>
+      </div>
+  
+ 
+      <div class="mb-3">
+        <label for="tel" class="form-label">Numéro de téléphone</label>
+        <input
+          type="tel"
+          class="form-control"
+          id="tel"
+          placeholder="Entrez le numéro de téléphone"
+          formControlName="tel"
+          [ngClass]="{ 'is-invalid': contactForm.get('tel')?.touched && contactForm.get('tel')?.invalid }"
+        />
+        <small class="text-danger" *ngIf="contactForm.get('tel')?.touched && contactForm.get('tel')?.invalid">
+          Veuillez entrer un numéro valide.
+        </small>
+      </div>
+  
+
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          placeholder="Entrez l'email"
+          formControlName="email"
+          [ngClass]="{ 'is-invalid': contactForm.get('email')?.touched && contactForm.get('email')?.invalid }"
+        />
+        <small class="text-danger" *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.invalid">
+          Veuillez entrer un email valide.
+        </small>
+      </div>
+  
+     
+      <div class="mb-3">
+        <label for="adresse" class="form-label">Adresse</label>
+        <input
+          type="text"
+          class="form-control"
+          id="adresse"
+          placeholder="Entrez l'adresse"
+          formControlName="adresse"
+          [ngClass]="{ 'is-invalid': contactForm.get('adresse')?.touched && contactForm.get('adresse')?.invalid }"
+        />
+        <small class="text-danger" *ngIf="contactForm.get('adresse')?.touched && contactForm.get('adresse')?.invalid">
+          L'adresse est obligatoire.
+        </small>
+      </div>
+  
+     
+      <div class="text-center">
+        <button type="submit" class="btn btn-success" [disabled]="contactForm.invalid">
+            Envoyer
+          </button>
+          <button type="reset" class="btn btn-secondary ms-2">Réinitialiser</button>
+      </div>
+    </form>
+  </div>
+  
