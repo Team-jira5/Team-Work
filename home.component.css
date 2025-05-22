@@ -1,0 +1,54 @@
+.banner {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+}
+
+.banner .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+  z-index: 1;
+}
+
+.banner h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  z-index: 2; /* Text above the overlay */
+}
+
+.banner p {
+  font-size: 1.2rem;
+  z-index: 2; /* Text above the overlay */
+}
+
+.banner button {
+  z-index: 2; /* Button above the overlay */
+  font-size: 1rem;
+  padding: 0.8rem 1.5rem;
+}
+.about-us {
+  padding: 4rem 0;
+}
+
+.about-us img {
+  width: 420px;
+  height: 500px;
+  object-fit: cover; /* Ensures the image maintains its aspect ratio */
+  padding-right: 2rem;
+}
+
+.about-us .btn {
+  font-size: 1rem;
+  padding: 0.8rem 2rem;
+}
+
+.ab-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
